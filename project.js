@@ -28,11 +28,20 @@ const handleCart=(title,price)=>{
     const container = document.getElementById("cart");
     const div = document.createElement("div");
     div.innerHTML =`<h3 class="price">${price}</h3>
-                <p>${title.slice(0,10)}</p>`;
+                <p>${title.slice(0,15)}</p>`;
 
     container.appendChild(div);
+    updateTotal();
 };
 
+const updateTotal = ()=>{
+    const allPrice = document.getElementsByClassName("price");
+    let count  = 0;
+    for (const element of allPrice){
+        count = count+parseFloat(element.innerText);
+    } 
 
+    document.getElementById("price").innerText = count;
+};
 
 loadProduct();
