@@ -11,6 +11,7 @@ const displayProduct = (products)=>{
    const  container = document.getElementById("product-container");
    products.forEach(product => {
     const div = document.createElement("div");
+    div.classList.add("card");
     div.innerHTML=`<img class="cart-image" src=${product.image} alt="product image" />
     <h5></h5>
     <p></p>
