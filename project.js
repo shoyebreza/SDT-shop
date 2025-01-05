@@ -13,14 +13,26 @@ const displayProduct = (products)=>{
     const div = document.createElement("div");
     div.classList.add("card");
     div.innerHTML=`<img class="cart-image" src=${product.image} alt="product image" />
-    <h5></h5>
-    <p></p>
+    <h5>${product.title.slice(0,20)}</h5>
+    <h3>Price : ${product.price}</h3>
+    <p>${product.description.slice(0,25)}</p>
     <button> Detail</button>
-    <button> Add to Cart</button>`;
+    <button onclick="handleCart('${product.title}','${product.price}')"> Add to Cart</button>`;
 
     container.appendChild(div);
    });
 }
+
+
+const handleCart=(title,price)=>{
+    const container = document.getElementById("cart");
+    const div = document.createElement("div");
+    div.innerHTML =`<h3 class="price">${price}</h3>
+                <p>${title.slice(0,10)}</p>`;
+
+    container.appendChild(div);
+};
+
 
 
 loadProduct();
