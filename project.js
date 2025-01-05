@@ -1,5 +1,6 @@
 
 
+
 const loadProduct =()=>{
     fetch('https://fakestoreapi.com/products')
         .then(res=>res.json())
@@ -25,6 +26,11 @@ const displayProduct = (products)=>{
 
 
 const handleCart=(title,price)=>{
+
+    const cartCount = document.getElementById("count").innerText;
+    const convCount = parseInt(cartCount);
+    convCount = convCount +1;
+
     const container = document.getElementById("cart");
     const div = document.createElement("div");
     div.innerHTML =`<h3 class="price">${price}</h3>
